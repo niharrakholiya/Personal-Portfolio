@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>achivements</title>
+    <link rel="stylesheet" href="achivement.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="" class="logo">portfolio</a>
+        <nav class="navbar">
+            
+            <a href="portfolio.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skill</a>
+            <a href="hobbies.html">Hobby</a>
+            <a href="achivement.html">Achivement</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="contact.html">contact</a>
+    
+            <div class="dark">
+            <img  src="https://static.thenounproject.com/png/1664849-200.png" id="icon">
+            </div>
+        </nav>
+        
+    </header> 
+    <h1 style="position: absolute; top: 100px; left: 40%">MY <span>ACHIEVEMENT</span></h1>
+    <div class="container">
+
+         <div class="card-content" style="display: none;">
+            <div class="card">
+                <div class="card-image">
+                    <img src="certificaate.jpg" alt="image can't load for technical issues">
+                </div>
+                <div class="card-info">
+                    <h3>Man of The Tournament </h3>
+                    <p>
+                       I achived man of the tournament in mauni cricket leauge held in my school
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="achivement.jpg" alt="image can't load for technical issues">
+                </div>
+                <div class="card-info">
+                    <h3>Secured First rank in village</h3>
+                    <p>
+                        I Secured First Rank in our Village in 12th.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="codechef.jpg" alt="image can't load for technical issues">
+                </div>
+                <div class="card-info">
+                    <h3>CODECHEF </h3>
+                    <p>
+                        Achieved 2 Star in Codechef
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="gujcet.png" alt="image can't load for technical issues">
+                </div>
+                <div class="card-info">
+                    <h3>GUJCET</h3>
+                    <p>
+                        I qualified of gujcet exam and i got 96.07 pr in gujcet exam.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="12th.png" alt="image can't load for technical issues">
+                </div>
+                <div class="card-info">
+                    <h3>H.S.C.</h3>
+                    <p>
+                     I get 98.59 pr in 12th board exam.    
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="certificate_quiz.jpg" alt="image can't load for technical issues">
+                </div>
+                <div class="card-info">
+                    <h3>GENRAL KNOWLEDGE</h3>
+                    <p>Participated A Goverment Quiz named Rich Heritage And Cultural Quiz 
+                    </p>
+                </div>
+            </div>
+          
+        </div> 
+        <div class="pagination">
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        function getPageList(totalPages, page,maxLength){
+            function range(start,end){
+                return Array.from(Array(end - start +1),(_,i)=> i+start);
+            }
+            var sidewidth=maxLength<9 ? 1 : 2;
+            var leftwidth=(maxLength-sidewidth*2-3)>>1;
+            var rightwidth=(maxLength-sidewidth*2-3)>>1;
+
+            if(totalPages<= maxLength){
+                return range(1,totalPages);
+            }
+            if(page<=maxLength-sidewidth-1-rightwidth){
+                return range(1,maxLength-sidewidth-1).concat(0,range(totalPages-sidewidth+1,totalPages));
+            }
+            if(page>=totalPages-sidewidth-1-rightwidth){
+                return range(1,sidewidth).concat(0,range(totalPages-sidewidth-1-rightwidth-leftwidth,totalPages));
+            }
+            return range(1,sidewidth).concat(0,range(page-leftwidth,page+rightwidth),0,range(totalPages-sidewidth+1,totalPages));
+  
+
+        }
+        $(function(){
+            var numberOfItem=$(".card-content .card").length;
+            var limitPerPage=3;
+            var totalPages=Math.ceil(numberOfItem/limitPerPage);
+            var paginationsize=7;
+            var currentPage;
+            function showPage(whichPage){
+                if(whichPage<1 || whichPage>totalPages) return false;
+                    currentPage=whichPage;
+                    $(".card-content .card").hide().slice((currentPage-1)*limitPerPage,currentPage*limitPerPage).show();
+                    $(".pagination li").slice(1,-1).remove();
+                    getPageList(totalPages,currentPage,paginationsize).forEach(item=>{
+                        $("<li>").addClass("page-item").addClass(item?"current-page":"dots")
+                            .toggleClass("active",item===currentPage).append($("<a>").addClass("page-link")
+                    .attr({href:"javascript:void(0)"}).text(item || " . . . ")).insertBefore(".next-page");
+                    });
+                    $(".previous-page").toggleClass("disable",currentPage===1);
+                    $(".next-page").toggleClass("disable",currentPage===totalPages);
+                    return true;
+            }
+            $(".pagination").append(
+                $("<li>").addClass("page-item").addClass("previous-page").append($("<a>").addClass("page-link").attr({href:"javascript:void(0)"}).text("Prev")),
+                $("<li>").addClass("page-item").addClass("next-page").append($("<a>").addClass("page-link").attr({href:"javascript:void(0)"}).text("Next")),
+
+            )
+            $(".card-content").show();
+            showPage(1);
+            $(document).on("click",".pagination  li.current-page:not(.active)",function(){
+                return showPage(+$(this).text());
+            })
+            $(".next-page").on("click",function(){
+                return showPage(currentPage+1);
+            })
+            $(".previous-page").on("click",function(){
+                return showPage(currentPage-1);
+            })
+        })
+    </script>
+
+</body>
+</html>

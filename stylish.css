@@ -1,0 +1,121 @@
+:root{
+  --primary-color: rgb(247, 253, 255);
+  --secondaray-color : black;
+ 
+}
+.dark-theme{
+--primary-color: black;
+--secondaray-color : white;
+}
+body{
+  background: var(--primary-color);
+}
+.header{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+padding: 20px;
+background: transparent;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 100;
+
+}
+#icon{
+width: 30px;
+height: 30px;
+}
+.navbar{
+position: absolute;
+right: 100px;
+}
+.logo{
+font-size: 25px;
+color: var(--secondaray-color);
+text-decoration: none;
+font-weight: 600;
+}
+.navbar  a {
+font-size: 20px;
+color: var(--secondaray-color);
+text-decoration: none;
+font-weight: 600;
+margin: 20px;
+transition: .3s;
+
+}
+.navbar a:hover
+{
+color: orange;
+}
+.dark{
+position: absolute;
+left:750px;
+bottom: -9px;
+}
+
+form {
+  max-width: 500px;
+  margin-top: 110px;
+  margin-left: 30%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="button"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #3e8e41;
+}
+
+#demo{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 25px;
+font-weight: bold;
+}

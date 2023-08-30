@@ -1,0 +1,36 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    
+}
+ 
+.navbar{
+    position: absolute;
+    right: 100px;
+}
+.navbar  a {
+    font-size: 20px;
+    color: var(--secondaray-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 20px;
+    transition: .3s;
+    
+}
+.navbar a:hover
+{
+    color: orange;
+}
+.dark{
+    position: absolute;
+    left:410px;
+    bottom: -9px;
+}

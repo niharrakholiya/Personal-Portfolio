@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="hobbies.css">
+</head>
+<body>
+  <header class="header">
+    <a href="" class="logo">portfolio</a>
+    <nav class="navbar">
+        
+        <a href="portfolio.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skill</a>
+        <a href="hobbies.html">Hobby</a>
+        <a href="achivement.html">Achivement</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="contact.html">contact</a>
+
+        <div class="dark">
+        <img  src="https://static.thenounproject.com/png/1664849-200.png" id="icon">
+        </div>
+    </nav>
+    
+</header> 
+  <h1 style="font-size: 45px; position:absolute; top:100px; left:40%;">My <span>Hobbies</span> </h1>
+
+  <button class="accordion">Cricket</button>
+  <div class="panel">
+    <img src="https://as2.ftcdn.net/v2/jpg/04/99/62/59/1000_F_499625910_ghBBxV9RsHAWLQVPJdTpF49ioBP9ak1Z.jpg">
+    <p>Cricket is a sport that has always fascinated me, and it has been a hobby of mine for many years. I love the strategy and teamwork involved in the game, as well as the thrill of watching a well-timed shot or a wicket falling. I also enjoy playing cricket with my friends and family, as it provides an opportunity to bond and work together towards a common goal. I have followed the sport closely over the years, keeping up with news, matches, and players from around the world. For me, cricket is more than just a sport, it's a passion and a way of life.</p>
+  </div>
+  
+  <button class="accordion">photography</button>
+  <div class="panel">
+    <img src="photography.png">
+    <p>As a photography hobbyist, I love to capture the beauty of nature, people, and places through my camera lens. It allows me to express my creativity and capture moments that are meaningful to me.</p>
+  </div>
+  
+  <button class="accordion">Tracking</button>
+  <div class="panel">
+    <img src="trekking.png">
+    <p>Trekking is a great hobby that involves exploring nature, usually on foot. It is an activity that can be enjoyed alone or with a group of friends or family. Trekking allows one to disconnect from the hustle and bustle of daily life and immerse themselves in the peaceful surroundings of nature.</p>
+    </div>
+    <button class="accordion">Playing Games</button>
+  <div class="panel">
+    <img src="mobile-game.png">
+    <p>Playing games can be a fun and entertaining hobby. It can involve playing board games, video games, or even outdoor games. Games can provide a way to unwind and relieve stress, while also providing a social activity to enjoy with friends.   <br><br><a href="games.html" style="position: relative;">For play Game Click Here</a>
+    </p>
+   
+    
+    
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+</body>
+</html>

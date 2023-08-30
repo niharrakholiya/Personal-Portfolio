@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+:root{
+    --primary-color: rgb(247, 253, 255);
+    --secondaray-color : black;
+   
+ }
+ .dark-theme{
+ --primary-color: black;
+ --secondaray-color : white;
+ }
+body{
+    background: var(--primary-color);
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    
+}
+ 
+.navbar{
+    position: absolute;
+    right: 100px;
+}
+.logo{
+    font-size: 25px;
+    color: var(--secondaray-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.navbar  a {
+    font-size: 20px;
+    color: var(--secondaray-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 20px;
+    transition: .3s;
+    
+}
+.navbar a:hover
+{
+    color: orange;
+}
+
+.name1{
+    position: absolute;
+    top: 350px;
+    left: 8%;
+}
+.name1 h1{
+    font-size: 50px;
+    color: var(--secondaray-color);
+    margin-bottom: 20px;
+}
+span{
+    color: orange;
+}
+.name1 p{
+    line-height: 20px;
+    color:var(--secondaray-color);
+}
+.name1 a{
+    background-color: var(--secondaray-color);
+    padding: 9px 22px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: inline-block;
+    margin: 6px;
+    border-radius: 5px;
+}
+.about{
+    color:var(--secondaray-color);
+    position: absolute;
+    top: 200px;
+    left: 700px;
+}
+.par{
+    text-align: left;
+    font-size: 20px;
+    color: var(--secondaray-color);
+    margin-top: 300px;
+    margin-left: 450px;
+    margin-right: 300px;
+}
+#icon{
+    width: 30px;
+    height: 30px;
+}
+.dark{
+    position: absolute;
+    left:800px;
+    bottom: -9px;
+}
+.new-label{
+    background-color: #4caf50;
+    color:white;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0 10px;
+    padding: 1px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    top: 325px;
+    left: 700px;
+}
+.rounded-img {
+    border-radius: 50%;
+    width: 300px;
+    height:300px;
+    position: absolute;
+    top: 270px;
+    left: 40px;
+  }
+  

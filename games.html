@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .get{
+      background-color: aqua;
+      color: aliceblue;
+      border: aqua;
+      border-radius: 5px;
+      text-align: center;
+      height: 30px;
+      width: auto;
+      letter-spacing: 1.5px;
+      margin-left: 48%;
+    }
+    body {
+      background: rgb(247, 253, 255);
+      color: black;
+    }
+
+    .info {
+      position: relative;
+      font-family: Arial;
+      margin: 10px;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    #title {
+      font-size: 20px;
+    }
+
+    #rest2 {
+      font-size: 13px;
+    }
+
+    #text div {
+      position: relative;
+      height: 200px;
+      width: 200px;
+      border: 1px dashed gray;
+      display: inline-block;
+      margin: 0;
+    }
+
+    #text {
+      width: 620px;
+      height: 620px;
+      background: black;
+      border: 5px solid black;
+      margin: auto;
+    }
+
+    #images {
+      width: 100%
+    }
+
+    img {
+      height: 200px;
+      width: 200px;
+    }
+
+    #drag4,
+    #drag5,
+    #drag6,
+    #drag7,
+    #drag8,
+    #drag9,
+    #drag10,
+    #drag11,
+    #drag12 {
+      height: 200px;
+      width: 200px;
+      display: inline-block;
+    }
+    button[type="submit"] {
+  display: block;
+  width: 10%;
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+
+    
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="info">
+    <div id="title">PUZZLE</div>
+    <div id="rest">Drag and drop Game</div>
+
+  </div>
+
+  <div id="images">
+    <img src="100.png" id="drag4" draggable="true" ondragstart="drag(event)">
+    <img src="101.png" id="drag5" draggable="true" ondragstart="drag(event)">
+    <img src="102.png" id="drag6" draggable="true" ondragstart="drag(event)">
+    <img src="103.png" id="drag7" draggable="true" ondragstart="drag(event)">
+    <img src="104.png" id="drag8" draggable="true" ondragstart="drag(event)">
+    <img src="105.png" id="drag9" draggable="true" ondragstart="drag(event)">
+    <img src="106.png" id="drag10" draggable="true" ondragstart="drag(event)">
+    <img src="107.png" id="drag11" draggable="true" ondragstart="drag(event)">
+    <img src="108.png" id="drag12" draggable="true" ondragstart="drag(event)">
+  </div>
+  <div id="text">
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  </div>
+  <div class="info">
+    <p>Congratulations if you finished!
+    <p>
+  </div>
+  <script>
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+
+  </script>
+
+  
+  </div>
+  <form method="post" action="/html/drag.html">
+  <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag and Drop File Upload</title>
+	<style>
+        .container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 50px auto;
+	width: 80%;
+	height: 400px;
+	border: 2px solid black;
+}
+
+.drop-zone {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-color: #f9f9f9;
+	border: 2px dashed #cccccc;
+}
+
+.drop-zone:hover {
+	border-color: #555555;
+}
+
+.drop-zone-text {
+	font-size: 24px;
+	color: #555555;
+}
+
+.drop-zone-upload {
+	margin-top: 20px;
+	font-size: 16px;
+	color: #555555;
+}
+
+.drop-zone-upload label {
+	margin-right: 10px;
+}
+
+input[type="file"] {
+	display: none;
+}
+button[type="button"] {
+  display: block;
+  width: 10%;
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #3e8e41;
+}
+
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div class="drop-zone" id="dropZone">
+			<div class="drop-zone-text">Drag and drop a file here</div>
+			<div class="drop-zone-upload">
+				<label for="fileInput">Or choose a file:</label>
+				<input type="file" id="fileInput" name="fileInput" multiple>
+			</div>
+		</div>
+	</div>
+	<script>
+        let dropZone = document.getElementById('dropZone');
+
+function handleFileUpload(files) {
+	let file = files[0];
+	console.log(file.name);
+	// Do something with the file, e.g. upload it to a server
+}
+
+function handleDrop(e) {
+	e.preventDefault();
+	let files = e.dataTransfer.files;
+	if (files.length > 0) {
+		handleFileUpload(files);
+	}
+}
+
+function handleDragOver(e) {
+	e.preventDefault();
+}
+
+function handleDragEnter(e) {
+	dropZone.classList.add('dragging');
+}
+
+function handleDragLeave(e) {
+	dropZone.classList.remove('dragging');
+}
+
+let fileInput = document.getElementById('fileInput');
+
+function handleInputChange(e) {
+	let files = e.target.files;
+	if (files.length > 0) {
+		handleFileUpload(files);
+	}
+}
+
+fileInput.addEventListener('change', handleInputChange);
+
+dropZone.addEventListener('dragover', handleDragOver);
+dropZone.addEventListener('dragenter', handleDragEnter);
+dropZone.addEventListener('dragleave', handleDragLeave);
+dropZone.addEventListener('drop', handleDrop);
+
+    </script>
+          <button type="button" onclick="myFunction()">Submit</button>
+          <p>Click the button to get your Location</p>
+          <button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
